@@ -22,7 +22,9 @@ $favList = $connection->get("favorites/list", ["count" => "200"]);
 	<meta charset="utf-8">
 	<title>imgFavtter</title>
 	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/lightbox.min.css">
 	<script src="./js/jquery-3.3.1.min.js"></script>
+	<script src="./js/lightbox.min.js"></script>
 	<script src="./js/masonry.pkgd.min.js"></script>
 	<script src="./js/imagesloaded.pkgd.min.js"></script>
 </head>
@@ -51,7 +53,7 @@ $favList = $connection->get("favorites/list", ["count" => "200"]);
 				$imgUrl = $media->media_url;
 		?>
 				<div class="item">
-					<img class="item_content" src="<?= $imgUrl ?>">
+					<a href="<?= $imgUrl ?>"  rel="lightbox" data-lightbox="<?= $fav->id_str ?>"><img class="item_content" src="<?= $imgUrl ?>"></a>
 				</div>
 		<?php
 			}
