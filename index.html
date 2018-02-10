@@ -3,12 +3,30 @@
 <head>
 	<meta charset="utf-8">
 	<title>imgFavtter</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
-	<h1>imgFavter</h1>
-	<p>このサイトではTwitterでいいねしてきた画像つきのツイートを一覧表示します<br>
-	あの日いいねした二次元画像を発掘しよう！</p>
-	<p>まずは下のリンクからTwitterにログイン！</p>
-	<p><a href="./login.php">Twitterでログインする</a></p>
+	<header>
+		<span id="title">imgFavtter</span>
+	</header>
+	<div id="main">
+		<p>このサイトではTwitterでいいねしてきた画像つきのツイートを一覧表示します<br>
+		あの日いいねした二次元画像を発掘しよう！</p>
+		<p>まずは下のリンクからTwitterにログイン！</p>
+		<a href="./login.php"><button class="loginBtn">Twitterでログイン</button></a>
+		<br>
+		<p>・当サイトについて</p>
+		<p>今までいいねしてきた画像を一覧で見たいという個人的な気持ちで作成したサイトです。<br>
+		TwitterAPIの仕様上最新200件のツイートから画像つきのみを取得します。</p>
+		<p>・今後やりたいこと</p>
+		<p>現状デザインなんてものはないに等しいのでそこら辺をなんとか。<br>
+		また、現状最新200件までしか取得できないが、パラメータをうまいこと使ってそれ以上取得したい</p>
+	</div>
+	<footer>
+		当サイトはベータ版です。
+		何か問題がありましたら<a href="https://twitter.com/mnao_305">こちらまで</a>。
+		<div id="copyright">© 2018 imgFavtter.</div>
+	</footer>
 </body>
 </html>
