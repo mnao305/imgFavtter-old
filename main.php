@@ -28,7 +28,8 @@ $favList = $connection->get("favorites/list", ["count" => "200"]);
 </head>
 <body>
 	<header>
-		<h1>imgFavtter</h1>
+		<span id="title">imgFavtter</span>
+		<span id="topLink"><a href="./index.html"><button>トップに戻る</button></a></span>
 	</header>
 
 	<div class="grid">
@@ -67,5 +68,10 @@ $favList = $connection->get("favorites/list", ["count" => "200"]);
 			});
 		});
 	</script>
+	<footer>
+		当サイトはベータ版です。
+		何か問題がありましたら<a href="https://twitter.com/mnao_305">こちらまで</a>。
+		<div id="copyright">© 2018 imgFavtter.</div>
+	</footer>
 </body>
 </html>

@@ -1,5 +1,53 @@
+body {
+	padding: 0;
+	margin: 0;
+	background-color: #F4F5F7;
+}
+
+header {
+	background-color: lightblue;
+}
+
+#title {
+	margin: 5px 20px;
+	font-size: 2em;
+}
+
+#topLink {
+	float: right;
+	margin: 5px;
+}
+
+#topLink button{
+	font-size: 1.2em;
+	position: relative;
+	display: inline-block;
+	font-weight: bold;
+	padding: 0.25em 0.5em;
+	text-decoration: none;
+	color: #00BCD4;
+	background: #ECECEC;
+	transition: .4s;
+}
+
+#topLink button:hover {
+	background: #00bcd4;
+	color: white;
+}
+
+footer {
+	background-color: lightblue;
+	padding: 10px;
+}
+
+#copyright {
+	text-align: center;
+	color: gray;
+}
+
 .grid {
-	margin: 0 auto;
+	width: 1500px;
+	margin: 10px;
 }
 
 .item {
