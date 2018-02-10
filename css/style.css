@@ -46,16 +46,56 @@ footer {
 }
 
 .grid {
-	width: 1500px;
-	margin: 10px;
+	width: 1800px;
+	margin: 0 auto;
 }
 
 .item {
-	width: 250px;
+	width: 300px;
 	float: left;
 }
 
 .item img {
 	margin: 5px;
-	width: 240px;
+	width: 290px;
+}
+
+/* ブラウザの横幅によって可変させる */
+@media (max-width: 1840px) {
+	.grid {
+		width: 1500px;
+	}
+}
+
+@media (max-width: 1540px) {
+	.grid {
+		width: 1200px;
+	}
+}
+
+@media (max-width: 1240px) {
+	.grid {
+		width: 900px;
+	}
+}
+
+@media (max-width: 940px) {
+	.grid {
+		width: 600px;
+	}
+}
+
+@media (max-width: 640px) {
+	.grid {
+		width: 300px;
+	}
+}
+
+@media (max-width: 340px) {
+	.grid {
+		width: 100%;
+	}
+	.grid img {
+		width: 100%;
+	}
 }

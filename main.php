@@ -80,7 +80,7 @@ try {
 		$container.imagesLoaded(function(){
 			$container.masonry({
 				itemSelector: '.item',
-				columnWidth: 250
+				columnWidth: 300
 			});
 		});
 	</script>
