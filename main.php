@@ -7,14 +7,24 @@ require_once './vendor/autoload.php';
 
 use Abraham\TwitterOAuth\TwitterOAuth;
 
+// SESSIONがなければトップに飛ばす
+if (!isset($_SESSION['accessToken'])) {
+	header('Location: http://localhost/webtest/imgFavtter/index.html');
+	exit;
+}
+
 //セッションに入れてた配列
 $accessToken = $_SESSION['accessToken'];
 
 //OAuthトークンとシークレットも使ってTwitterOAuth をインスタンス化
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $accessToken['oauth_token'], $accessToken['oauth_token_secret']);
-
-// いいね履歴を入手
-$favList = $connection->get("favorites/list", ["count" => "200"]);
+try {
+	// いいね履歴を入手
+	$favList = $connection->get("favorites/list", ["count" => "200"]);
+} catch (\RuntimeException $e) {
+	// いいね取得に失敗したらメッセージを表示させる
+	$error = "いいねの取得に失敗しました。\nしばらくしてからやり直してください";
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -36,6 +46,10 @@ $favList = $connection->get("favorites/list", ["count" => "200"]);
 
 	<div class="grid">
 		<?php
+		if (isset($error)) {
+			echo $error;
+			exit;
+		}
 		// いいね履歴を一個ずつ抽出
 		foreach ($favList as $fav) {
 			// 画像以外はスキップする
