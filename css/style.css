@@ -1,0 +1,13 @@
+.grid {
+	margin: 0 auto;
+}
+
+.item {
+	width: 250px;
+	float: left;
+}
+
+.item img {
+	margin: 5px;
+	width: 240px;
+}
