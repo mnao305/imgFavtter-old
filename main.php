@@ -9,7 +9,7 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 
 // SESSIONがなければトップに飛ばす
 if (!isset($_SESSION['accessToken'])) {
-	header('Location: http://localhost/webtest/imgFavtter/index.html');
+	header('Location: ./index.html');
 	exit;
 }
 
