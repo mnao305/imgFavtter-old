@@ -64,7 +64,7 @@ try {
 					// 動画プレイヤー予定地
 					continue;
 				}
-				$imgUrl = $media->media_url;
+				$imgUrl = $media->media_url_https;
 		?>
 				<div class="item">
 					<a href="<?= $imgUrl ?>"  rel="lightbox" data-lightbox="<?= $fav->id_str ?>"><img class="item_content" src="<?= $imgUrl ?>"></a>
