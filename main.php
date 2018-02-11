@@ -41,6 +41,7 @@ try {
 <body>
 	<header>
 		<span id="title">imgFavtter</span>
+		<span id="topLink"><a href="https://twitter.com/intent/tweet?text=いいねしてきた画像を一覧表示!%20imgFavtter%0a&url=https://imgFavtter.mnao305.com" onClick="window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;" rel="nofollow"><button>ツイート!</button></a></span>
 		<span id="topLink"><a href="./index.html"><button>トップに戻る</button></a></span>
 	</header>
 
