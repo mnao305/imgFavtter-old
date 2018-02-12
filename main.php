@@ -85,6 +85,7 @@ try {
 				itemSelector: '.item',
 				columnWidth: 300
 			});
+			$("footer").css("display", "block");
 		});
 	</script>
 	<footer>
