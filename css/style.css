@@ -13,12 +13,12 @@ header {
 	font-size: 2em;
 }
 
-#topLink {
+.topLink {
 	float: right;
 	margin: 5px;
 }
 
-#topLink button{
+.topLink button{
 	font-size: 1.2em;
 	position: relative;
 	display: inline-block;
@@ -30,7 +30,7 @@ header {
 	transition: .4s;
 }
 
-#topLink button:hover {
+.topLink button:hover {
 	background: #00bcd4;
 	color: white;
 }
