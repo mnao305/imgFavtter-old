@@ -51,6 +51,7 @@ footer {
 }
 
 .item {
+	position: relative;
 	width: 300px;
 	float: left;
 }
@@ -58,6 +59,26 @@ footer {
 .item img {
 	margin: 5px;
 	width: 290px;
+}
+
+.item p {
+	position: absolute;
+	width: 290px;
+	bottom: 0;
+	left: 50%;
+	-ms-transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	margin:0;
+	padding:0;
+	background: rgba(139, 139, 139, 0.5);
+	text-align: right;
+}
+
+.item a {
+	color: white;
+	font-weight: bold;
+	text-decoration:none;
 }
 
 /* ブラウザの横幅によって可変させる */

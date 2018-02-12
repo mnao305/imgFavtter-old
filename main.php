@@ -69,6 +69,7 @@ try {
 		?>
 				<div class="item">
 					<a href="<?= $imgUrl ?>"  rel="lightbox" data-lightbox="<?= $fav->id_str ?>"><img class="item_content" src="<?= $imgUrl ?>"></a>
+					<a href="https://twitter.com/<?= $fav->user->screen_name ?>/status/<?= $fav->id_str ?>" target="_blank"><p>Twitterで元ツイートを見る→</p></a>
 				</div>
 		<?php
 			}
