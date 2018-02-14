@@ -9,7 +9,7 @@
 <body>
 	<header>
 		<span id="title">imgFavtter</span>
-		<span class="topLink"><a href="https://twitter.com/intent/tweet?text=いいねしてきた画像を一覧表示!%20imgFavtter%0a&url=https://imgFavtter.mnao305.com" onClick="window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;" rel="nofollow"><button>ツイート!</button></a></span>
+		<span class="topLink"><a href="https://twitter.com/intent/tweet?text=いいねしてきた画像を一覧表示!%20imgFavtter%0a&url=https://imgFavtter.mnao305.com" onclick="window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;" rel="nofollow"><button>ツイート!</button></a></span>
 	</header>
 	<div id="main">
 		<p>このサイトではTwitterでいいねしてきた画像つきのツイートを一覧表示します<br>
@@ -17,6 +17,11 @@
 		<p>まずは下のボタンからTwitterにログイン！</p>
 		<a href="./login.php"><button class="loginBtn">Twitterでログイン</button></a>
 		<br>
+		<p>使い方</p>
+		<p>まず上のTwitterでログインというボタンを押します。<br>
+		そうするとTwitterの認証画面に飛ばされるので連携アプリを認証してください。<br>
+		ログインしてない場合はログインしてください。<br>
+		あとは表示される画像たちを眺めるだけ！</p>
 		<p>・当サイトについて</p>
 		<p>今までいいねしてきた画像を一覧で見たいという個人的な気持ちで作成したサイトです。<br>
 		TwitterAPIの仕様上最新200件のツイートから画像つきのみを取得します。</p>
@@ -31,7 +36,7 @@
 	</div>
 	<footer>
 		当サイトはベータ版です。
-		何か問題がありましたら<a href="https://twitter.com/mnao_305">こちらまで</a>。
+		何か問題がありましたら<a href="https://twitter.com/mnao_305" target="_blank">Twitter</a>か<a href="https://github.com/mnao305/imgFavtter/issues" target="_blank">GitHub</a>まで。
 		<div id="copyright">© 2018 imgFavtter.</div>
 	</footer>
 </body>
