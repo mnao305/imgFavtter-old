@@ -38,6 +38,7 @@ try {
 	<script src="./js/lightbox.min.js"></script>
 	<script src="./js/masonry.pkgd.min.js"></script>
 	<script src="./js/imagesloaded.pkgd.min.js"></script>
+	<script src="./js/loadingoverlay.min.js"></script>
 </head>
 <body>
 	<header>
@@ -77,21 +78,28 @@ try {
 		}
 		?>
 	</div>
+	<footer>
+		当サイトはベータ版です。
+		何か問題がありましたら<a href="https://twitter.com/mnao_305" target="_blank">Twitter</a>か<a href="https://github.com/mnao305/imgFavtter/issues" target="_blank">GitHub</a>まで。
+		<div id="copyright">© 2018 imgFavtter.</div>
+	</footer>
 	<script>
-		var $container = $('.grid');
+		// くるくる表示
+		$.LoadingOverlay("show");
 
+		var $container = $('.grid');
+		// 画像がすべて読み込めたら。。。
 		$container.imagesLoaded(function(){
+			// 画像をタイル状に表示
 			$container.masonry({
 				itemSelector: '.item',
 				columnWidth: 300
 			});
+			// 隠していたフッターを表示させる
 			$("footer").css("display", "block");
+			// くるくるを消す
+			$.LoadingOverlay("hide");
 		});
 	</script>
-	<footer>
-		当サイトはベータ版です。
-		何か問題がありましたら<a href="https://twitter.com/mnao_305">こちらまで</a>。
-		<div id="copyright">© 2018 imgFavtter.</div>
-	</footer>
 </body>
 </html>
