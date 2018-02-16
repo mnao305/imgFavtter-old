@@ -34,11 +34,13 @@ try {
 	<link rel="stylesheet" href="./css/style.css">
 	<link rel="stylesheet" href="./css/lightbox.min.css">
 	<link rel="stylesheet" href="./css/main.css">
+	<link rel="stylesheet" href="./css/jquery.fancybox.min.css">
 	<script src="./js/jquery-3.3.1.min.js"></script>
 	<script src="./js/lightbox.min.js"></script>
 	<script src="./js/masonry.pkgd.min.js"></script>
 	<script src="./js/imagesloaded.pkgd.min.js"></script>
 	<script src="./js/loadingoverlay.min.js"></script>
+	<script src="./js/jquery.fancybox.min.js"></script>
 </head>
 <body>
 	<header>
@@ -70,7 +72,7 @@ try {
 				$imgUrl = $media->media_url_https;
 		?>
 				<div class="item">
-					<a href="<?= $imgUrl ?>"  rel="lightbox" data-lightbox="<?= $fav->id_str ?>"><img class="item_content" src="<?= $imgUrl ?>"></a>
+					<a href="<?= $imgUrl ?>" data-fancybox="<?= $fav->id_str ?>" data-caption="<?= $fav->text ?> By <?= $fav->user->name ?><br><a href='https://twitter.com/<?= $fav->user->screen_name ?>/status/<?= $fav->id_str ?>' target='_blank'>Twitterで元ツイートを見る→</a>"><img class="item_content" src="<?= $imgUrl ?>"></a>
 					<a href="https://twitter.com/<?= $fav->user->screen_name ?>/status/<?= $fav->id_str ?>" target="_blank"><p>Twitterで元ツイートを見る→</p></a>
 				</div>
 		<?php
@@ -84,6 +86,8 @@ try {
 		<div id="copyright">© 2018 imgFavtter.</div>
 	</footer>
 	<script>
+		// 画像拡大表示
+		$('[data-fancybox]').fancybox();
 		// くるくる表示
 		$.LoadingOverlay("show");
 
