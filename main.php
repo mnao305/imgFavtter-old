@@ -67,12 +67,23 @@ try {
 				// 動画だったら動画プレイヤーを貼る
 				if ($media->type === 'video') {
 					// 動画プレイヤー予定地
+				?>
+					<div class="item">
+						<a href="<?= $media->video_info->variants[1]->url ?>" data-fancybox="<?= $fav->id_str ?>" data-caption="<?= $fav->text ?> By <?= $fav->user->name ?><br><a href='https://twitter.com/<?= $fav->user->screen_name ?>/status/<?= $fav->id_str ?>' target='_blank'>Twitterで元ツイートを見る→</a>">
+						<img  class="item_content" src="<?= $media->media_url_https ?>">
+						<img src="./images/play.png" class="playBtn">
+						</a>
+						<a href="https://twitter.com/<?= $fav->user->screen_name ?>/status/<?= $fav->id_str ?>" target="_blank"><p>Twitterで元ツイートを見る→</p></a>
+					</div>
+				<?php
 					continue;
 				}
 				$imgUrl = $media->media_url_https;
 		?>
 				<div class="item">
-					<a href="<?= $imgUrl ?>" data-fancybox="<?= $fav->id_str ?>" data-caption="<?= $fav->text ?> By <?= $fav->user->name ?><br><a href='https://twitter.com/<?= $fav->user->screen_name ?>/status/<?= $fav->id_str ?>' target='_blank'>Twitterで元ツイートを見る→</a>"><img class="item_content" src="<?= $imgUrl ?>"></a>
+					<a href="<?= $imgUrl ?>" data-fancybox="<?= $fav->id_str ?>" data-caption="<?= $fav->text ?> By <?= $fav->user->name ?><br><a href='https://twitter.com/<?= $fav->user->screen_name ?>/status/<?= $fav->id_str ?>' target='_blank'>Twitterで元ツイートを見る→</a>">
+					<img class="item_content" src="<?= $imgUrl ?>">
+					</a>
 					<a href="https://twitter.com/<?= $fav->user->screen_name ?>/status/<?= $fav->id_str ?>" target="_blank"><p>Twitterで元ツイートを見る→</p></a>
 				</div>
 		<?php

@@ -13,7 +13,7 @@ footer {
 	float: left;
 }
 
-.item img {
+.item .item_content {
 	margin: 5px;
 	width: 290px;
 }
@@ -36,6 +36,18 @@ footer {
 	color: white;
 	font-weight: bold;
 	text-decoration:none;
+}
+
+.playBtn {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	margin:0;
+	padding:0;
+	width: 80px;
 }
 
 /* ブラウザの横幅によって可変させる */
