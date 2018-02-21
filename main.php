@@ -20,7 +20,11 @@ $accessToken = $_SESSION['accessToken'];
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $accessToken['oauth_token'], $accessToken['oauth_token_secret']);
 try {
 	// いいね履歴を入手
-	$favList = $connection->get("favorites/list", ["count" => "200"]);
+	if (!isset($_POST['getFav'])) {
+		$favList = $connection->get("favorites/list", ["count" => "200"]);
+	} else {
+		$favList = $connection->get("favorites/list", ["count" => "200", "max_id" => $_POST['getFav']]);
+	}
 } catch (\RuntimeException $e) {
 	// いいね取得に失敗したらメッセージを表示させる
 	$error = "いいねの取得に失敗しました。\nしばらくしてからやり直してください";
@@ -91,6 +95,10 @@ try {
 		}
 		?>
 	</div>
+	<form action="main.php" name="nextFav" method="post">
+		<input type="hidden" name="getFav" value="">
+		<div id="buttonWrap"><button class="button" onclick="getFavBtn();">もっと前のいいねを見る-></button></div>
+	</form>
 	<footer>
 		当サイトはベータ版です。
 		何か問題がありましたら<a href="https://twitter.com/mnao_305" target="_blank">Twitter</a>か<a href="https://github.com/mnao305/imgFavtter/issues" target="_blank">GitHub</a>まで。
@@ -115,6 +123,53 @@ try {
 			// くるくるを消す
 			$.LoadingOverlay("hide");
 		});
+
+		function getFavBtn() {
+			document.nextFav.getFav.value="<?= $fav->id_str ?>";
+			document.nextFav.submit();
+		}
 	</script>
 </body>
 </html>
+<?php
+
+function favDisplay() {
+	if (isset($error)) {
+		echo $error;
+		exit;
+	}
+	// いいね履歴を一個ずつ抽出
+	foreach ($favList as $fav) {
+		// 画像以外はスキップする
+		if (!isset($fav->extended_entities)) {
+			continue;
+		}
+		$favImgs = $fav->extended_entities->media;
+		// 複数画像のためのループ
+		foreach ($favImgs as $key => $media) {
+			// 動画だったら動画プレイヤーを貼る
+			if ($media->type === 'video') {
+				// 動画プレイヤー予定地
+			?>
+				<div class="item">
+					<a href="<?= $media->video_info->variants[1]->url ?>" data-fancybox="<?= $fav->id_str ?>" data-caption="<?= $fav->text ?> By <?= $fav->user->name ?><br><a href='https://twitter.com/<?= $fav->user->screen_name ?>/status/<?= $fav->id_str ?>' target='_blank'>Twitterで元ツイートを見る→</a>">
+					<img  class="item_content" src="<?= $media->media_url_https ?>">
+					<img src="./images/play.png" class="playBtn">
+					</a>
+					<a href="https://twitter.com/<?= $fav->user->screen_name ?>/status/<?= $fav->id_str ?>" target="_blank"><p>Twitterで元ツイートを見る→</p></a>
+				</div>
+			<?php
+				continue;
+			}
+			$imgUrl = $media->media_url_https;
+	?>
+			<div class="item">
+				<a href="<?= $imgUrl ?>" data-fancybox="<?= $fav->id_str ?>" data-caption="<?= $fav->text ?> By <?= $fav->user->name ?><br><a href='https://twitter.com/<?= $fav->user->screen_name ?>/status/<?= $fav->id_str ?>' target='_blank'>Twitterで元ツイートを見る→</a>">
+				<img class="item_content" src="<?= $imgUrl ?>">
+				</a>
+				<a href="https://twitter.com/<?= $fav->user->screen_name ?>/status/<?= $fav->id_str ?>" target="_blank"><p>Twitterで元ツイートを見る→</p></a>
+			</div>
+	<?php
+		}
+	}
+}

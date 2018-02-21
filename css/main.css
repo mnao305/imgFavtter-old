@@ -89,3 +89,25 @@ footer {
 		width: 100%;
 	}
 }
+
+.button {
+	font-size: 1.5em;
+	position: relative;
+	display: inline-block;
+	font-weight: bold;
+	padding: 0.15em 0.5em;
+	text-decoration: none;
+	color: #00BCD4;
+	background: #ECECEC;
+	transition: .4s;
+	margin: 10px;
+}
+
+#buttonWrap {
+	text-align: center;
+}
+
+.button:hover {
+	background: #00bcd4;
+	color: white;
+}
