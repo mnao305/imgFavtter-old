@@ -21,9 +21,9 @@ $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $accessToken['oaut
 try {
 	// いいね履歴を入手
 	if (!isset($_POST['getFav'])) {
-		$favList = $connection->get("favorites/list", ["count" => "200"]);
+		$favList = $connection->get("favorites/list", ["count" => "100"]);
 	} else {
-		$favList = $connection->get("favorites/list", ["count" => "200", "max_id" => $_POST['getFav']]);
+		$favList = $connection->get("favorites/list", ["count" => "100", "max_id" => $_POST['getFav']]);
 	}
 } catch (\RuntimeException $e) {
 	// いいね取得に失敗したらメッセージを表示させる
