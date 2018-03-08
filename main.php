@@ -44,11 +44,9 @@ try {
 	<meta charset="utf-8">
 	<title>imgFavtter</title>
 	<link rel="stylesheet" href="./css/style.css">
-	<link rel="stylesheet" href="./css/lightbox.min.css">
 	<link rel="stylesheet" href="./css/main.css">
 	<link rel="stylesheet" href="./css/jquery.fancybox.min.css">
 	<script src="./js/jquery-3.3.1.min.js"></script>
-	<script src="./js/lightbox.min.js"></script>
 	<script src="./js/masonry.pkgd.min.js"></script>
 	<script src="./js/imagesloaded.pkgd.min.js"></script>
 	<script src="./js/loadingoverlay.min.js"></script>
