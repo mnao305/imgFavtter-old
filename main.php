@@ -76,10 +76,16 @@ try {
 			foreach ($favImgs as $key => $media) {
 				// 動画だったら動画プレイヤーを貼る
 				if ($media->type === 'video') {
-					// 動画プレイヤー予定地
+					$videoInfos = $media->video_info->variants;
+					foreach ($videoInfos as $key => $videoInfo) {
+						if (isset($videoInfo->bitrate) && $videoInfo->bitrate === 2176000) {
+							$videoUrl = $videoInfo->url;
+							break;
+						}
+					}
 				?>
 					<div class="item">
-						<a href="<?= $media->video_info->variants[1]->url ?>" data-fancybox="<?= h($fav->id_str) ?>" data-caption="<?= h($fav->text) ?> By <?= h($fav->user->name) ?><br><a href='https://twitter.com/<?= $fav->user->screen_name ?>/status/<?= $fav->id_str ?>' target='_blank'>Twitterで元ツイートを見る→</a>">
+						<a href="<?= $videoUrl ?>" data-fancybox="<?= h($fav->id_str) ?>" data-caption="<?= h($fav->text) ?> By <?= h($fav->user->name) ?><br><a href='https://twitter.com/<?= $fav->user->screen_name ?>/status/<?= $fav->id_str ?>' target='_blank'>Twitterで元ツイートを見る→</a>">
 						<img  class="item_content" src="<?= $media->media_url_https ?>">
 						<img src="./images/play.png" class="playBtn">
 						</a>
