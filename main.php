@@ -25,6 +25,10 @@ try {
 	} else {
 		$favList = $connection->get("favorites/list", ["count" => "100", "max_id" => $_POST['getFav']]);
 	}
+	// テスト用
+	$json = json_encode($favList, JSON_UNESCAPED_UNICODE);
+	$file = 'test.json';
+	file_put_contents($file, $json);
 } catch (\RuntimeException $e) {
 	// いいね取得に失敗したらメッセージを表示させる
 	$error = "いいねの取得に失敗しました。\nしばらくしてからやり直してください";
@@ -77,12 +81,13 @@ try {
 				// 動画だったら動画プレイヤーを貼る
 				if ($media->type === 'video') {
 					$videoInfos = $media->video_info->variants;
-					foreach ($videoInfos as $key => $videoInfo) {
-						if (isset($videoInfo->bitrate) && $videoInfo->bitrate === 2176000) {
-							$videoUrl = $videoInfo->url;
-							break;
+					$videoTmp = $videoInfos[0];
+					foreach ($videoInfos as $videoInfo) {
+						if (isset($videoInfo->bitrate) && $videoTmp->bitrate < $videoInfo->bitrate) {
+							$videoTmp = $videoInfo;
 						}
 					}
+					$videoUrl = $videoTmp->url;
 				?>
 					<div class="item">
 						<a href="<?= $videoUrl ?>" data-fancybox="<?= h($fav->id_str) ?>" data-caption="<?= h($fav->text) ?> By <?= h($fav->user->name) ?><br><a href='https://twitter.com/<?= $fav->user->screen_name ?>/status/<?= $fav->id_str ?>' target='_blank'>Twitterで元ツイートを見る→</a>">
