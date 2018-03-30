@@ -111,3 +111,8 @@ footer {
 	background: #00bcd4;
 	color: white;
 }
+
+hr {
+	border: 1px solid lightblue;
+	margin: 0 30px;
+}

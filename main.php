@@ -112,6 +112,7 @@ try {
 		}
 		?>
 	</div>
+	<hr>
 	<form action="main.php" name="nextFav" method="post">
 		<input type="hidden" name="getFav" value="">
 		<div id="buttonWrap"><button class="button" onclick="getFavBtn();">もっと前のいいねを見る-></button></div>
